@@ -6,11 +6,7 @@ import './App.css';
 
 function App() {
   
-  const [fortunes, setFortunes] = useState([]);
-
-  useEffect(() => {
-    setFortunes(getFortunes())
-  });
+  const [fortunes, setFortunes] = useState(getFortunes());
 
   return (
     <div className="App">
