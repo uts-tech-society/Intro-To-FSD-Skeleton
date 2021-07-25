@@ -1,7 +1,4 @@
-//connect to the api
-
-
-//CRUD methods - create, read, update, delete
+const baseurl = "http://localhost:3001/api/fortunes";
 
 //dummy data 
 let exampleFortunes = [
@@ -11,21 +8,30 @@ let exampleFortunes = [
   ]
 
 // read fortunes (GET)
-export function getFortunes() {
-    console.log("get fortunes")
-    return exampleFortunes;
+export async function getFortunes() {
+    const url = baseurl + "/all";
+    let results = await fetch(url).then(res => res.json())
+    console.log(results)
+    return results;
+
 }
 
 // get one random fortune
-export function getRandomFortune() {
-    console.log("get one random fortune")
+export async function getRandomFortune() {
+    const url = baseurl + "/random";
+    let results = await fetch(url).then(res => res.json())
+    console.log(results)
+    return results;
 }
 
 // create fortune (POST)
-export function createFortune(fortuneText) {
-    exampleFortunes.push(fortuneText);
-    console.log(`create fortune with text: ${fortuneText}`)
-    console.log(exampleFortunes)
+export async function createFortune(fortuneText) {
+    const requestPayload = {
+        method: "POST",
+        body: fortuneText
+    }
+    const url = baseurl + "/";
+    await fetch(url, requestPayload).then(data => console.log(data));
 }
 
 //update fortune (PATCH)

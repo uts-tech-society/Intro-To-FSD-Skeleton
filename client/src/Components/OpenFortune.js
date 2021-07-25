@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {getRandomFortune} from '../APIConnection/ApiFunctions.js';
 import fortuneCookie from '../Images/fortunecookie.jpg';
 import OpenFortuneCookie from '../Images/fortunecookie_open.jpg';
 
@@ -8,23 +9,18 @@ function OpenFortune({fortunes}) {
     const [cookieIsOpen, setCookieIsOpen] = useState(false);
 
     function openCookie() {
-        //open cookie
-        setCookieIsOpen(true);
-
         //select a fortune to display randomly
         if (!cookieIsOpen) {
             selectFortune();
         }
+        //open cookie
+        setCookieIsOpen(true);
     }
 
-    function selectFortune() {
-        //choose random number
-        let index = Math.floor(Math.random()*fortunes.length);
-        //make sure its not the same as the last one
-        while (fortunes[index] === selectedFortune) {
-            index = Math.floor(Math.random()*fortunes.length);
-        }
-        setSelectedFortune(fortunes[index]);
+    async function selectFortune() {
+        getRandomFortune().then((fortune) => {
+            setSelectedFortune(fortune.fortuneName);
+          });
     }
     
     function resetCookie() {

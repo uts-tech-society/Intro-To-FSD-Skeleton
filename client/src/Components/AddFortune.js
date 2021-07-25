@@ -7,6 +7,7 @@ function AddFortune() {
     function addFortune() {
         createFortune(newFortune);
     }
+    
     return (
         <div className="add-input">
             <input value={newFortune} onChange={(e) => setNewFortune(e.target.value)} id="edit-fortune" type="text"/>

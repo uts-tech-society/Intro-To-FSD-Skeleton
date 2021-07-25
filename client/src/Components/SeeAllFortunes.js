@@ -12,7 +12,7 @@ function SeeAllFortunes(props) {
                 <h2 className="cursive">Fortunes:</h2>
                 <AddFortune/>
                 <div className="fortune-list">
-                    {fortunes.map((fortune, index) => <div className="fortune-card cursive" key={index}>{fortune}</div>)}
+                    {fortunes.map((fortune, index) => <div className="fortune-card cursive" key={index}>{fortune.fortuneName}</div>)}
                 </div>
             </div>
         </div>
