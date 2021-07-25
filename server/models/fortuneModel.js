@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const roomSchema = new Schema({
-  roomName: {
+const fortuneSchema = new Schema({
+  fortuneName: {
     type: String,
     required: true,
   },
 });
 
-const Room = mongoose.model("Room", roomSchema);
+const Fortune = mongoose.model("Fortune", fortuneSchema);
 
 module.exports = Room;
