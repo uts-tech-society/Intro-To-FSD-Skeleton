@@ -9,11 +9,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(urlencoded({ extended: false }));
-app.use(json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Connect to the MongoDB Database
-const URI = process.env.ATLAS_URI;
+const URI = process.env.MONGODB_URI;
 mongoose.connect(URI, {
   useNewUrlParser: true,
   useCreateIndex: true,

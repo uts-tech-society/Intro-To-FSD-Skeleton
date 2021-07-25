@@ -11,4 +11,4 @@ const fortuneSchema = new Schema({
 
 const Fortune = mongoose.model("Fortune", fortuneSchema);
 
-module.exports = Room;
+module.exports = Fortune;

@@ -1,6 +1,6 @@
 const Fortune = require("../models/fortuneModel");
 
-module.exports.getAllFortune = async (req, res) => {
+module.exports.getAllFortunes = async (req, res) => {
   await Fortune.find()
     .then((fortunes) => {
       res.status(200).send(fortunes);
@@ -32,6 +32,23 @@ module.exports.getRandomFortune = async (req, res) => {
         ],
       })
     );
+};
+
+module.exports.createNewFortune = async (req, res) => {
+  let newFortune = new Fortune(req.body);
+
+  await newFortune.save((err, Fortune) => {
+    if (err) {
+      return res.status(400).json({
+        error: [
+          {
+            error: "Database didn't like your fortune (:",
+          },
+        ],
+      });
+    }
+    res.json(Fortune);
+  });
 };
 
 module.exports.updateExistingFortune = async (req, res) => {
