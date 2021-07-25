@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from "react";
+import SeeAllFortunes from "./Components/SeeAllFortunes.js";
+import OpenFortune from "./Components/OpenFortune.js";
+import {getFortunes} from './APIConnection/ApiFunctions.js';
 import './App.css';
 
 function App() {
+  
+  const [fortunes, setFortunes] = useState(getFortunes());
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <OpenFortune fortunes={fortunes}/>
+      <SeeAllFortunes fortunes={fortunes}/>
     </div>
   );
 }
