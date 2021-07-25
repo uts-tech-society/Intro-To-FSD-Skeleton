@@ -1,38 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  display: grid;
+  place-content: center;
+  background-color: #282c34;
+  color: white;
+  min-height: 100vh;
+  font-size: 14px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+}
+
+img.fortune-cookie {
+  width: 400px;
+  display: block;
+}
+
+.button {
+  margin: 10px;
+  background-color: orange;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: large;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.showfortunes {
+  margin-top: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.add-input {
+  vertical-align: center;
+  
+}
+
+.hidden {
+  visibility: visible;
+}
+
+.show {
+  visibility: hidden;
+}
+
+.fortune-card {
+  background-color: rgb(223, 63, 0);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  min-height: 50px;
+  display: grid;
+  place-items: center;
+  justify-content: left;
+  font-size: larger;
+}
+
+.cursive {
+  font-family: 'Courgette', cursive;
 }
