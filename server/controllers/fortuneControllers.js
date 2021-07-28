@@ -53,7 +53,6 @@ module.exports.createNewFortune = async (req, res) => {
 
 module.exports.updateExistingFortune = async (req, res) => {
   const {fortuneName, _id} = req.body;
-  console.log(fortuneName, _id)
 
   await Fortune.findByIdAndUpdate({_id}, { "fortuneName": fortuneName }, { new: true })
     .then((fortune) => {

@@ -31,9 +31,13 @@ function OpenFortune({fortunes}) {
         <div className="open-fortune">
             <h1>🥠 Find your Fortune 🥠</h1>
             <img src={cookieIsOpen ? OpenFortuneCookie : fortuneCookie} alt="unopened fortune cookie" className="fortune-cookie"/>
-            <h2 className="cursive">{cookieIsOpen ? selectedFortune : ""}</h2>
-            <button className="button" onClick={openCookie}>Open the cookie</button>
-            <button className="button" onClick={resetCookie}>Reset</button>
+            <h2 className="cursive fortune-text">{cookieIsOpen ? selectedFortune : ""}</h2>
+            {
+                cookieIsOpen ? 
+                <button className="button" onClick={resetCookie}>Reset</button>
+                :
+                <button className="button" onClick={openCookie}>Open the cookie</button>
+            }
         </div>
     );
 }

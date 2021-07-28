@@ -12,7 +12,7 @@ function App() {
     getFortunes().then((fortunes) => {
       setFortunes(fortunes);
     });
-  }, [])
+  }, [])// remove [] for live updating
 
   return (
     <div className="App">
