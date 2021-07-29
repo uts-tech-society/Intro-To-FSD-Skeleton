@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {getRandomFortune} from '../APIConnection/ApiFunctions.js';
 import fortuneCookie from '../Images/fortunecookie.jpg';
 import OpenFortuneCookie from '../Images/fortunecookie_open.jpg';
 
@@ -8,23 +9,18 @@ function OpenFortune({fortunes}) {
     const [cookieIsOpen, setCookieIsOpen] = useState(false);
 
     function openCookie() {
-        //open cookie
-        setCookieIsOpen(true);
-
         //select a fortune to display randomly
         if (!cookieIsOpen) {
             selectFortune();
         }
+        //open cookie
+        setCookieIsOpen(true);
     }
 
-    function selectFortune() {
-        //choose random number
-        let index = Math.floor(Math.random()*fortunes.length);
-        //make sure its not the same as the last one
-        while (fortunes[index] === selectedFortune) {
-            index = Math.floor(Math.random()*fortunes.length);
-        }
-        setSelectedFortune(fortunes[index]);
+    async function selectFortune() {
+        getRandomFortune().then((fortune) => {
+            setSelectedFortune(fortune.fortuneName);
+          });
     }
     
     function resetCookie() {
@@ -35,9 +31,13 @@ function OpenFortune({fortunes}) {
         <div className="open-fortune">
             <h1>🥠 Find your Fortune 🥠</h1>
             <img src={cookieIsOpen ? OpenFortuneCookie : fortuneCookie} alt="unopened fortune cookie" className="fortune-cookie"/>
-            <h2 className="cursive">{cookieIsOpen ? selectedFortune : ""}</h2>
-            <button className="button" onClick={openCookie}>Open the cookie</button>
-            <button className="button" onClick={resetCookie}>Reset</button>
+            <h2 className="cursive fortune-text">{cookieIsOpen ? selectedFortune : ""}</h2>
+            {
+                cookieIsOpen ? 
+                <button className="button" onClick={resetCookie}>Reset</button>
+                :
+                <button className="button" onClick={openCookie}>Open the cookie</button>
+            }
         </div>
     );
 }

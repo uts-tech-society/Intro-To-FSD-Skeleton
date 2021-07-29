@@ -20,6 +20,7 @@
 img.fortune-cookie {
   width: 400px;
   display: block;
+  margin: auto;
 }
 
 .button {
@@ -32,13 +33,38 @@ img.fortune-cookie {
   color: white;
 }
 
-.showfortunes {
+.fortunes {
   margin-top: 50px;
+  width: 600px;
 }
 
 .add-input {
   vertical-align: center;
-  
+}
+
+.add-fortune-input { 
+  width: 200px;
+  height: 20px;
+}
+
+.fortune-card {
+  background-color: rgb(223, 63, 0);
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  width: 100%;
+  /* min-height: 50px; */
+  /* display: innline; */
+  /* place-items: center; */
+  /* justify-content: left; */
+  text-align: left;
+  font-size: larger;
+}
+
+.fortune-card-button {
+  margin: 0px 5px;
+  display: inline;
+  float: right;
 }
 
 .hidden {
@@ -49,19 +75,10 @@ img.fortune-cookie {
   visibility: hidden;
 }
 
-.fortune-card {
-  background-color: rgb(223, 63, 0);
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  width: 100%;
-  min-height: 50px;
-  display: grid;
-  place-items: center;
-  justify-content: left;
-  font-size: larger;
-}
-
 .cursive {
   font-family: 'Courgette', cursive;
+}
+
+input {
+  min-width: 300px; 
 }

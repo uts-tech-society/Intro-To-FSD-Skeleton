@@ -52,9 +52,9 @@ module.exports.createNewFortune = async (req, res) => {
 };
 
 module.exports.updateExistingFortune = async (req, res) => {
-  await Fortune.findOneAndUpdate({ _id: req.params.FortuneId }, req.body, {
-    new: true,
-  })
+  const {fortuneName, _id} = req.body;
+
+  await Fortune.findByIdAndUpdate({_id}, { "fortuneName": fortuneName }, { new: true })
     .then((fortune) => {
       res.status(200).send(fortune);
     })
@@ -70,7 +70,7 @@ module.exports.updateExistingFortune = async (req, res) => {
 };
 
 module.exports.deleteExistingFortune = async (req, res) => {
-  await Fortune.deleteOne({ _id: req.params.FortuneId })
+  await Fortune.deleteOne({ _id: req.params.id })
     .then((fortune) => {
       res.json({ message: "Successfully deleted fortune :)" });
     })

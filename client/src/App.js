@@ -6,7 +6,13 @@ import './App.css';
 
 function App() {
   
-  const [fortunes, setFortunes] = useState(getFortunes());
+  const [fortunes, setFortunes] = useState([]);
+
+  useEffect(() => {
+    getFortunes().then((fortunes) => {
+      setFortunes(fortunes);
+    });
+  }, [])// remove [] for live updating
 
   return (
     <div className="App">
