@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className="App">
-      <pre>Fortune cookie coming soon....</pre>
+      <h1>Fortune cookie coming soon....</h1>
     </div>
   );
 }
